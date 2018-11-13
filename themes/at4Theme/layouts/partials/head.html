@@ -1,0 +1,12 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <link rel="amphtml" href="{{ .Permalink }}amp/">
+    <meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1">
+    
+    <title>{{ if eq .Title .Site.Title }}{{ .Site.Title }}{{ else }}{{ with .Title }}{{.}} - {{ end }}{{ .Site.Title}}{{ end }}</title>
+
+    <link rel="stylesheet" href="{{.Site.BaseURL}}/css/styles.css">
+

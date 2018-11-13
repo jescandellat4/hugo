@@ -1,0 +1,22 @@
+{
+    "bookendVersion": "v1.0",
+    "shareProviders": [
+        "email",
+        "twitter"
+    ],
+    "components": [
+        {
+            "type": "heading",
+            "text": "Últimas notícias"
+        }
+        {{ range first 3 .Pages }}
+        ,
+        {
+            "type": "small",
+            "title": "{{ .Title }}",
+            "url": "{{.Permalink}}",
+            "image": "http://placehold.it/256x256"
+        }
+        {{end}}
+    ]
+}

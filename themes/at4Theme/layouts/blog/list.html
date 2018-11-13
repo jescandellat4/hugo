@@ -1,0 +1,11 @@
+{{ partial "head" . }}
+</head>
+<body>
+    
+    {{ range where .Site.Pages "Section" "blog" }}
+        {{ if .IsPage }}
+        <p>{{.Title}} {{.Permalink}}</p><br>
+        {{end}}
+    {{ end }}
+
+{{partial "footer" . }}

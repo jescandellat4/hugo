@@ -1,0 +1,105 @@
+{{ partial "head.amp" . }}
+
+<script async custom-element="amp-story" src="https://cdn.ampproject.org/v0/amp-story-1.0.js"></script>
+<script async custom-element="amp-video" src="https://cdn.ampproject.org/v0/amp-video-0.1.js"></script>
+
+<style amp-custom>
+    * { box-sizing: border-box; }
+    amp-story * {
+        font-family: 'Helvitica Nueve', sans-serif;
+        color: white;
+    }
+    amp-story-page {
+        background: white;
+    }
+    amp-story h1 {
+        font-size: 46px;
+    }
+    .blured {
+        text-shadow: 2px 2px 3px rgba(0,0,0,0.8);
+    }
+    .bottom {
+        align-content: end;
+    }
+    .bold {
+        font-weight: bold;
+    }
+    .medium {
+        font-weight: 600;
+    }
+    .center {
+        text-align: center;
+    }
+    .button {
+      align-items: center;
+      border: 4px solid #FFFFFF;
+      color: #FFFFFF;
+      display: flex;
+      height: 60px;
+      margin: 0 auto;
+      max-width: 240px;
+      text-decoration:none;
+    }
+    .button p {
+      font-size: 20px;
+      width: 100%;
+    }
+    .justified {
+        text-align: justify;
+    }
+</style>
+
+</head>
+
+<body>
+
+    <amp-story standalone 
+            title="{{ .Title }}"
+            publisher="AT4"
+            publisher-logo-src="http://placehold.it/256x256"
+            poster-portrait-src="http://placehold.it/300x400">
+
+        {{ $order := 1}}
+        {{ range first 3 .Pages }}
+
+        <amp-story-page id="page-{{$order}}" auto-advance-after="5s">
+
+            <amp-story-grid-layer template="fill">
+                <amp-img src="{{ .URL }}images/{{ .Params.story.file }}" width="{{ .Params.story.width }}" height="{{ .Params.story.height }}" layout="responsive"></amp-img>
+            </amp-story-grid-layer>
+
+            <amp-story-grid-layer template="thirds" class="bottom">
+                <div grid-area="lower-third">
+                    <h1 class="bold">{{.Title}}</h1>
+                    <p class="justified">{{ .Summary }}</p>
+                </div>
+            </amp-story-grid-layer>
+
+        </amp-story-page>
+        {{$order = (add $order 1)}}
+
+        {{ end }}
+
+        <amp-story-page id="page-{{$order}}" auto-advance-after="5s">
+
+            <amp-story-grid-layer template="fill">
+                <amp-video autoplay loop width="400" height="750" poster="https://ampbyexample.com/img/poster0.png" layout="fill">
+                    <source src="https://ampbyexample.com/video/p1.mp4" type="video/mp4">
+                </amp-video>
+            </amp-story-grid-layer>
+            <amp-story-grid-layer template="thirds" class="bottom">
+                <h1 grid-area="middle-third" class="bold blured">Lorem ipsum dolor sit amet consectetur adipiscing elit litora</h1>
+            </amp-story-grid-layer>
+            <amp-story-cta-layer>
+                <a href="../posts/amp" class="button medium center">
+                    <p class="blured">Leer más</p>
+                </a>
+            </amp-story-cta-layer>
+
+        </amp-story-page>
+
+        <amp-story-bookend src="../index.json" layout=nodisplay></amp-story-bookend>
+    </amp-story>
+
+
+    {{partial "footer" . }}

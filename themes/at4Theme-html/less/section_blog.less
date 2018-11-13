@@ -1,0 +1,85 @@
+.masonry {
+    display: block;
+    width: 100%;
+    margin: 0 auto;
+    position: relative;
+
+    & .item {
+        margin-bottom: 25px;
+        width: 100%;
+        display: inline-block;
+    }
+
+    @media @tablet {        
+        column-count: 2;
+        column-gap: 25px;
+        width: 725px;
+
+        & .item {
+            max-width: 350px;
+        }
+    }
+
+    @media @desktop {
+        column-count: 3;
+        column-gap: 25px;
+        width: 1280px;
+
+        & .item {
+            max-width: 410px;
+        }
+    }
+}
+
+
+
+
+.grid {
+
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+
+    flex-wrap: wrap;
+
+    -webkit-box-pack: justify;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
+
+    & .item {        
+        
+        -ms-flex-posifite: 1;
+        flex-grow: 1;
+
+        margin-bottom: @gutter;
+
+        width: 100%;
+
+        @media @desktop {
+            width: 25%;
+
+            padding: 0 @gutter;
+
+            &:first-child {
+                padding: 0 @gutter 0 0;
+            }
+            
+            &:last-child {
+                padding: 0 0 0 @gutter;
+            }
+        }
+
+        @media @tablet {
+            width: 50%;
+
+            &:nth-child(odd) {
+                padding-right: @gutter;
+            }
+
+            &:nth-child(even) {
+                padding-left: @gutter;
+            }
+        }
+    }
+}
+

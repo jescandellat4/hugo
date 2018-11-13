@@ -1,0 +1,48 @@
+{{ partial "head" . }}
+
+</head>
+<body>
+
+    {{ partial "header" . }}
+
+
+    {{ with .Param "carrousel" }}
+    <div class="thumbnail traveling3">
+        {{ range . }}
+        <div class="slide"><img src="./images/{{.file}}" /></div>
+        {{ end }}
+    </div>
+    {{ end }}
+
+    {{ with .Param "thumbnail" }}
+    <div class="thumbnail">
+        <img src="./images/{{.file}}" />
+    </div>
+    {{ end }}
+
+    <section class="content">
+        {{ .Content }}
+    </section>
+
+    <section class="content grid">
+        {{ range first 4 (where .Data.Pages "Section" "blog") }}
+        <article class="item">
+
+            <h3><a href="{{ .URL }}">{{ .Title }}</a></h3>
+        
+            <p>{{ .PublishDate.Format "2 de January del 2006"}}</p>
+        
+            {{ $prefix := .URL}}
+            {{ with .Param "thumbnail" }}
+            <div class="thumbnail block">
+                <img src="{{$prefix}}/images/{{.file}}" >
+            </div>
+            {{ end }}
+            
+            <p>{{ .Summary }}</p>
+            
+            </article>
+        {{ end }}
+    </section>
+
+    {{ partial "footer" . }}

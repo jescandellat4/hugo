@@ -1,0 +1,13 @@
+baseURL = "http://localhost/at4-hugo"
+languageCode = "en-us"
+title = "My New Hugo Site"
+theme = "at4Theme"
+disableHugoGeneratorInject = true
+
+publishDir= "C:\\inetpub\\wwwroot\\at4-hugo"
+
+
+[outputs]
+    section = ["html", "json", "amp"]
+    home = ["html", "amp"]
+    single = ["html", "amp"]

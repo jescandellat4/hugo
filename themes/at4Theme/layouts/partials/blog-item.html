@@ -1,0 +1,16 @@
+<article class="item">
+
+    <h3><a href="{{ .URL }}">{{ .Title }}</a></h3>
+
+    <p>{{ .PublishDate.Format "2 de January del 2006"}}</p>
+
+    {{ $prefix := .URL}}
+    {{ with .Param "thumbnail" }}
+    <div class="thumbnail block">
+        <amp-img src="{{$prefix}}/images/{{.file}}" layout="responsive" width="410px" height="{{div (mul 410 .height) .width}}px" ></amp-img>
+    </div>
+    {{ end }}
+    
+    <p>{{ .Summary }}</p>
+
+</article>

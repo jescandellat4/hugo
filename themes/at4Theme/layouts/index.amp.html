@@ -1,0 +1,40 @@
+{{ partial "head.amp" . }}
+
+<script custom-element="amp-sidebar" src="https://cdn.ampproject.org/v0/amp-sidebar-0.1.js" asyncgi></script>
+
+<style amp-custom>{{ partial "styles.css" . | safeCSS }}</style>
+
+
+
+</head>
+<body>
+    {{ partial "header.amp" . }}
+<main >
+
+    {{ with .Param "carrousel" }}
+    <div class="thumbnail traveling3">
+        {{ range . }}
+        <amp-img src="../images/{{.file}}" height="80vh"></amp-img>
+        {{ end }}
+    </div>
+    {{ end }}
+    
+    {{ with .Param "thumbnail" }}
+    <div class="thumbnail">
+        <amp-img src="../images/{{.file}}" height="80vh"></amp-img>
+    </div>
+    {{ end }}
+
+    <section class="content">
+        {{ .Content }}
+    </section>
+
+    <section class="content grid" >
+        {{ range first 4 (where .Data.Pages "Section" "blog") }}
+            {{ partial "blog-item" . }}
+        {{ end }}
+    </section>
+    
+</main>
+
+{{ partial "footer" .}}

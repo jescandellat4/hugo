@@ -1,0 +1,13 @@
+{{ partial "head" . }}
+
+<main class="content">
+
+    <section class="masonry">
+        {{ range .Pages }}
+            {{ partial "blog-item" .}}
+        {{ end }}
+    </section>
+    
+</main>
+
+{{ partial "footer" .}}
