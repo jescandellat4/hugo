@@ -8,22 +8,7 @@
 
 
     <section>
-        {{ with .Param "carrousel" }}
-        <div class="thumbnail traveling3">
-            {{ range . }}
-            <div class="slide">
-                <img src="./images/{{.file}}" />
-            </div>
-            {{ end }}
-
-            <div class="fixed-slide">
-                <h1>Bla bla lorem ipsum bla blaBla bla lorem ipsum bla bla</h1>
-
-                <a class="button" href="#"><p>Conocenos</p></a>
-            </div>
-        </div>
-        {{ end }}
-
+        {{ partial "carrousel" . }}
     </section>
 
     <section class="content">

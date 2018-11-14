@@ -1,0 +1,15 @@
+{{ with .Param "carrousel" }}
+<div class="thumbnail traveling3">
+    {{ range . }}
+    <div class="slide">
+        <amp-img src="../images/{{.file}}" noloading height="80vh"></amp-img>
+    </div>
+    {{ end }}
+
+    <div class="fixed-slide">
+        <h1>Bla bla lorem ipsum bla blaBla bla lorem ipsum bla bla</h1>
+
+        <a class="button" href="#"><p>Conocenos</p></a>
+    </div>
+</div>
+{{ end }}
