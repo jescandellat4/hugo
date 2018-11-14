@@ -2,19 +2,18 @@
 
 <script async custom-element="amp-sidebar" src="https://cdn.ampproject.org/v0/amp-sidebar-0.1.js"></script>
 
-<style amp-custom>{{ partial "styles.css" . | safeCSS }}</style>
+{{ partial "css.amp" . }}
 
 </head>
 <body>
-    {{ partial "header.amp" . }}
+{{ partial "header.amp" . }}
 <main >
-
     <section>
         {{ with .Param "carrousel" }}
         <div class="thumbnail traveling3">
             {{ range . }}
             <div class="slide">
-                <amp-img src="../images/{{.file}}" layout="responsive" width="{{.width}}" height="{{.height}}"></amp-img>
+                <amp-img src="../images/{{.file}}" noloading height="80vh"></amp-img>
             </div>
             {{ end }}
 
