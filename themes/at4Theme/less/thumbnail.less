@@ -48,7 +48,14 @@
             -webkit-animation: traveling3 18s linear 12s infinite;
             animation: traveling3 18s linear 12s infinite;
         }
-    }    
+    }  
+    
+    & .fixed-slide {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
 }
 
 @keyframes traveling3 {

@@ -1,48 +1,63 @@
 {{ partial "head" . }}
 
 </head>
+
 <body>
 
     {{ partial "header" . }}
 
 
-    {{ with .Param "carrousel" }}
-    <div class="thumbnail traveling3">
-        {{ range . }}
-        <div class="slide"><img src="./images/{{.file}}" /></div>
-        {{ end }}
-    </div>
-    {{ end }}
+    <section>
+        {{ with .Param "carrousel" }}
+        <div class="thumbnail traveling3">
+            {{ range . }}
+            <div class="slide">
+                <img src="./images/{{.file}}" />
+            </div>
+            {{ end }}
 
-    {{ with .Param "thumbnail" }}
-    <div class="thumbnail">
-        <img src="./images/{{.file}}" />
-    </div>
-    {{ end }}
+            <div class="fixed-slide">
+                <h1>Bla bla lorem ipsum bla blaBla bla lorem ipsum bla bla</h1>
+
+                <a class="button" href="#"><p>Conocenos</p></a>
+            </div>
+        </div>
+        {{ end }}
+
+    </section>
 
     <section class="content">
         {{ .Content }}
     </section>
 
-    <section class="content grid">
-        {{ range first 4 (where .Data.Pages "Section" "blog") }}
-        <article class="item">
+    <section class="bg-grey">
+        <div class="content">
 
-            <h3><a href="{{ .URL }}">{{ .Title }}</a></h3>
-        
-            <p>{{ .PublishDate.Format "2 de January del 2006"}}</p>
-        
-            {{ $prefix := .URL}}
-            {{ with .Param "thumbnail" }}
-            <div class="thumbnail block">
-                <img src="{{$prefix}}/images/{{.file}}" >
+            <header class="center">
+                <h2>Últimas notícias</h2>
+            </header>
+
+            <div class="grid3">
+                {{ range first 3 (where .Data.Pages "Section" "blog") }}
+                <article class="item">
+
+                    {{ $prefix := .URL}}
+                    {{ with .Param "thumbnail" }}
+                    <div class="thumbnail block">
+                        <img src="{{$prefix}}/images/{{.file}}">
+                    </div>
+                    {{ end }}
+
+                    <h3><a href="{{ .URL }}">{{ .Title }}</a></h3>
+
+                    <p>{{ .PublishDate.Format "2 de January del 2006"}}</p>
+
+                </article>
+                {{ end }}
             </div>
-            {{ end }}
-            
-            <p>{{ .Summary }}</p>
-            
-            </article>
-        {{ end }}
+
+            <a class="button" href="blog/"><p>Ver todo</p></a>
+        </div>
     </section>
 
     {{ partial "footer" . }}

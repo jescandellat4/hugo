@@ -1,40 +1,67 @@
 {{ partial "head.amp" . }}
 
-<script custom-element="amp-sidebar" src="https://cdn.ampproject.org/v0/amp-sidebar-0.1.js" asyncgi></script>
+<script async custom-element="amp-sidebar" src="https://cdn.ampproject.org/v0/amp-sidebar-0.1.js"></script>
 
 <style amp-custom>{{ partial "styles.css" . | safeCSS }}</style>
-
-
 
 </head>
 <body>
     {{ partial "header.amp" . }}
 <main >
 
-    {{ with .Param "carrousel" }}
-    <div class="thumbnail traveling3">
-        {{ range . }}
-        <amp-img src="../images/{{.file}}" height="80vh"></amp-img>
+    <section>
+        {{ with .Param "carrousel" }}
+        <div class="thumbnail traveling3">
+            {{ range . }}
+            <div class="slide">
+                <amp-img src="../images/{{.file}}" layout="responsive" width="{{.width}}" height="{{.height}}"></amp-img>
+            </div>
+            {{ end }}
+
+            <div class="fixed-slide">
+                <h1>Bla bla lorem ipsum bla blaBla bla lorem ipsum bla bla</h1>
+
+                <a class="button" href="#"><p>Conocenos</p></a>
+            </div>
+        </div>
         {{ end }}
-    </div>
-    {{ end }}
-    
-    {{ with .Param "thumbnail" }}
-    <div class="thumbnail">
-        <amp-img src="../images/{{.file}}" height="80vh"></amp-img>
-    </div>
-    {{ end }}
+
+    </section>
 
     <section class="content">
         {{ .Content }}
     </section>
 
-    <section class="content grid" >
-        {{ range first 4 (where .Data.Pages "Section" "blog") }}
-            {{ partial "blog-item" . }}
-        {{ end }}
+    <section class="bg-grey">
+        <div class="content">
+
+            <header class="center">
+                <h2>Últimas notícias</h2>
+            </header>
+
+            <div class="grid3">
+                {{ range first 3 (where .Data.Pages "Section" "blog") }}
+                <article class="item">
+
+                    {{ $prefix := .URL}}
+                    {{ with .Param "thumbnail" }}
+                    <div class="thumbnail block">
+                        <amp-img src="{{$prefix}}/images/{{.file}}" layout="responsive" width="{{.width}}" height="{{.height}}"></amp-img>
+                    </div>
+                    {{ end }}
+
+                    <h3><a href="{{ .URL }}">{{ .Title }}</a></h3>
+
+                    <p>{{ .PublishDate.Format "2 de January del 2006"}}</p>
+
+                </article>
+                {{ end }}
+            </div>
+
+            <a class="button" href="../blog/amp"><p>Ver todo</p></a>
+        </div>
     </section>
     
 </main>
 
-{{ partial "footer" .}}
+{{ partial "footer.amp" .}}

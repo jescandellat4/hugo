@@ -1,35 +1,35 @@
 <header class="header-bar {{ if or ( isset .Params "carrousel") (isset .Params "thumbnail") }}header-thumbnail{{ else }}header-box{{ end }}">
-        <div class="content">
-            <div role="button" aria-label="open sidebar" on="tap:header-sidebar.toggle" tabindex="0" class="sidebar-trigger">☰</div>
+    <div class="content">
+        <div role="button" aria-label="open sidebar" on="tap:header-sidebar.toggle" tabindex="0" class="sidebar-trigger">☰</div>
 
-            <svg width="66" height="66" class="logo">
-                <circle cx="33" cy="33" r="27.5" stroke="#fff" fill="none" stroke-width="3"></circle>
-                <circle cx="33" cy="33" r="26.5" stroke="#000" fill="#fff" stroke-width="3"></circle>
-            </svg>
-
-            <nav>
-                <ul>
-                    {{ range .Site.Menus.header_menu }}
-                    <li><a href="{{ .URL }}">{{ .Name }}</a></li>
-                    {{ end }}
-                </ul>
-            </nav>
-
-        </div>
-    </header>
-
-    <amp-sidebar id="header-sidebar" layout="nodisplay">
-
-        <div class="sidebar-header">
-            <div role="button" aria-label="close sidebar" on="tap:header-sidebar.toggle" tabindex="0" class="sidebar-trigger">✕</div>
-        </div>
+        <svg width="66" height="66" class="logo">
+            <circle cx="33" cy="33" r="27.5" stroke="#fff" fill="none" stroke-width="3"></circle>
+            <circle cx="33" cy="33" r="26.5" stroke="#000" fill="#fff" stroke-width="3"></circle>
+        </svg>
 
         <nav>
             <ul>
-                {{ range .Site.Menus.sidebar_menu }}
+                {{ range .Site.Menus.header_menu }}
                 <li><a href="{{ .URL }}">{{ .Name }}</a></li>
                 {{ end }}
             </ul>
         </nav>
 
-    </amp-sidebar>
+    </div>
+</header>
+
+<amp-sidebar id="header-sidebar" layout="nodisplay" side="left">
+
+    <div class="sidebar-header">
+        <div role="button" aria-label="close sidebar" on="tap:header-sidebar.toggle" tabindex="0" class="sidebar-trigger">✕</div>
+    </div>
+
+    <nav>
+        <ul>
+            {{ range .Site.Menus.sidebar_menu }}
+            <li><a href="{{ .URL }}">{{ .Name }}</a></li>
+            {{ end }}
+        </ul>
+    </nav>
+
+</amp-sidebar>

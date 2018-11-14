@@ -34,7 +34,7 @@
 
 
 
-.grid {
+.grid3 {
 
     display: -webkit-flex;
     display: -ms-flexbox;
@@ -55,8 +55,8 @@
 
         width: 100%;
 
-        @media @desktop {
-            width: 25%;
+        @media @desktop-and-tablet {
+            width: 33%;
 
             padding: 0 @gutter;
 
@@ -66,18 +66,6 @@
             
             &:last-child {
                 padding: 0 0 0 @gutter;
-            }
-        }
-
-        @media @tablet {
-            width: 50%;
-
-            &:nth-child(odd) {
-                padding-right: @gutter;
-            }
-
-            &:nth-child(even) {
-                padding-left: @gutter;
             }
         }
     }

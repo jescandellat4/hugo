@@ -6,11 +6,11 @@ header.header-bar {
 
     &.header-box {
         background-color: @background;
-        color: @color-dark;
+        color: @color;
         box-shadow: 0 0 5px 2px rgba(0, 0, 0, .1);
 
         & .sidebar-trigger {
-            color: @color-dark;
+            color: @color;
         }
 
         & + amp-sidebar + * {
@@ -18,10 +18,10 @@ header.header-bar {
         }
     }
     &.header-thumbnail {
-        color: @color-light;
+        color: @color-invert;
         
         & .sidebar-trigger {
-            color: @color-light;
+            color: @color-invert;
         }
     }
 
@@ -120,7 +120,7 @@ div.sidebar-trigger {
 
 #header-sidebar {
     background-color: @background;
-    color: @color-dark;
+    color: @color;
     width: 300px;
     
     padding: 0 1rem;
