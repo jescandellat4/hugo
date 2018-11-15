@@ -45,4 +45,28 @@
         </div>
     </section>
 
-    {{ partial "footer" . }}
+
+
+    
+    <script type="text/javascript">
+    document.addEventListener("DOMContentLoaded", function() {
+        // menu a blanco
+        var menu = document.querySelector(".header-bar");
+        if (menu) {
+            window.addEventListener("scroll", function() {
+                let top = -document.documentElement.getBoundingClientRect().top;
+                if (top > 100) {
+                    // white
+                    menu.classList.remove("header-thumbnail");
+                    menu.classList.add("header-box");
+                } else if (top == 0) {
+                    // trasparent
+                    menu.classList.add("header-thumbnail");
+                    menu.classList.remove("header-box");
+                }
+            });
+        }
+    })
+    </script>
+        
+{{ partial "footer" . }}

@@ -1,24 +1,22 @@
-{{ partial "head.amp" . }}
+{{ partial "head" . }}
 </head>
 <body>
     
     <section>
-    {{ range where .Site.Pages "Section" "blog" }}
-        {{ if .IsPage }}
         <article>
             {{ $prefix := .URL}}
             {{ with .Param "thumbnail" }}
             <div class="thumbnail block">
-                <amp-img src="{{$prefix}}/images/{{.file}}" layout="responsive" width="{{.width}}" height="{{.height}}"></amp-img>
+                <img src="{{$prefix}}/images/{{.file}}">
             </div>
             {{ end }}
 
             <h3><a href="{{ .URL }}">{{ .Title }}</a></h3>
 
             <p>{{ .PublishDate.Format "2 de January del 2006"}}</p>
+
+            <p>{{.Content}}</p>
         </article>
-        {{end}}
-    {{ end }}
     </section>
 
 {{partial "footer" . }}

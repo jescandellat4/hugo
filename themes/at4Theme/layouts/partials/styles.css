@@ -72,6 +72,9 @@ header.header-bar.header-box .sidebar-trigger {
 header.header-bar.header-box + amp-sidebar + * {
   margin-top: 70px;
 }
+header.header-bar.header-box + main {
+  margin-top: 70px;
+}
 header.header-bar.header-thumbnail {
   color: #fff;
 }

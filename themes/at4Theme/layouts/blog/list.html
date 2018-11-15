@@ -2,10 +2,26 @@
 </head>
 <body>
     
+
+    {{partial "header-box" .}}
+
+    <main>
     {{ range where .Site.Pages "Section" "blog" }}
         {{ if .IsPage }}
-        <p>{{.Title}} {{.Permalink}}</p><br>
+        <article>
+            {{ $prefix := .URL}}
+            {{ with .Param "thumbnail" }}
+            <div class="thumbnail block">
+                <img src="{{$prefix}}/images/{{.file}}">
+            </div>
+            {{ end }}
+
+            <h3><a href="{{ .URL }}">{{ .Title }}</a></h3>
+
+            <p>{{ .PublishDate.Format "2 de January del 2006"}}</p>
+        </article>
         {{end}}
     {{ end }}
+    </main>
 
 {{partial "footer" . }}

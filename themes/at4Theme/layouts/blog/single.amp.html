@@ -1,10 +1,8 @@
-{{ partial "head.amp" . }}
+{{ partial "head" . }}
 </head>
 <body>
     
     <section>
-    {{ range where .Site.Pages "Section" "blog" }}
-        {{ if .IsPage }}
         <article>
             {{ $prefix := .URL}}
             {{ with .Param "thumbnail" }}
@@ -16,9 +14,9 @@
             <h3><a href="{{ .URL }}">{{ .Title }}</a></h3>
 
             <p>{{ .PublishDate.Format "2 de January del 2006"}}</p>
+
+            <p>{{.Content}}</p>
         </article>
-        {{end}}
-    {{ end }}
     </section>
 
 {{partial "footer" . }}

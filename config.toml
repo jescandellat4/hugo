@@ -8,6 +8,6 @@ publishDir= "C:\\inetpub\\wwwroot\\at4-hugo"
 
 
 [outputs]
-    section = ["html", "json", "amp"]
+    section = ["html", "json", "amp"] # al contener <amp-story> hay que poder generear el json del bookend (list.amp.html + list.json)
     home = ["html", "amp"]
-    single = ["html", "amp"]
+    page = ["html", "amp"]
