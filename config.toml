@@ -6,6 +6,7 @@ disableHugoGeneratorInject = true
 
 publishDir= "C:\\inetpub\\wwwroot\\at4-hugo"
 
+google_maps_api_key = "123"
 
 [outputs]
     section = ["html", "json", "amp"] # al contener <amp-story> hay que poder generear el json del bookend (list.amp.html + list.json)

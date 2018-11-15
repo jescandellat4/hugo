@@ -32,4 +32,22 @@ menu:
         name: "inicio"
 ---
 
+{{% section %}}
+
 # Te ayudamos a reinvertarte, **innovamos** con tecnologías emergentes y las ponemos en práctica para el beneficio de tu negocio
+
+{{% /section %}}
+
+{{% section class="bg-grey" %}}
+
+## Tablón informativo
+
+{{% last3 section="blog" %}}
+
+{{% /section %}}
+
+{{% section %}}
+
+{{% map latitude="39.5758828" longitude="2.6476453" %}}
+
+{{% /section %}}

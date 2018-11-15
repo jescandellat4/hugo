@@ -1,0 +1,13 @@
+{{ $class := .Get "class" }}
+{{ $content := .Get "content" }}
+
+
+<section {{ if $class }}class="{{ $class }}"{{end}}>
+    {{ if $content }}
+        <div class="content">
+            {{ .Inner }}
+        </div>
+    {{ else }}
+        {{ .Inner }}
+    {{ end }}
+</section>

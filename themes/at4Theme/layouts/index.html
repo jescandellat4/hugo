@@ -1,53 +1,16 @@
 {{ partial "head" . }}
 
 </head>
-
 <body>
 
     {{ partial "header" . }}
-
 
     <section>
         {{ partial "carrousel" . }}
     </section>
 
-    <section class="content">
-        {{ .Content }}
-    </section>
-
-    <section class="bg-grey">
-        <div class="content">
-
-            <header class="center">
-                <h2>Últimas notícias</h2>
-            </header>
-
-            <div class="grid3">
-                {{ range first 3 (where .Data.Pages "Section" "blog") }}
-                <article class="item">
-
-                    {{ $prefix := .URL}}
-                    {{ with .Param "thumbnail" }}
-                    <div class="thumbnail block">
-                        <img src="{{$prefix}}/images/{{.file}}">
-                    </div>
-                    {{ end }}
-
-                    <h3><a href="{{ .URL }}">{{ .Title }}</a></h3>
-
-                    <p>{{ .PublishDate.Format "2 de January del 2006"}}</p>
-
-                </article>
-                {{ end }}
-            </div>
-
-            <a class="button" href="blog/"><p>Ver todo</p></a>
-        </div>
-    </section>
-
-
-
-    
+    {{ .Content }}
+        
     <script type="text/javascript">
     document.addEventListener("DOMContentLoaded", function() {
         // menu a blanco

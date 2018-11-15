@@ -1,0 +1,17 @@
+{{ $section := .Get "section" }}
+{{ $sectionPages := where .Site.Pages "Section" $section }}
+{{ $pages := where $sectionPages "IsPage" true }}
+
+<div class="grid3">
+    {{ range first 3 $pages }}
+    <article class="item">
+        <div class="thumbnail block">
+            <img src="{{ .URL }}images/{{ .Params.thumbnail.file }}">
+        </div>
+        <h3><a href="{{ .URL }}">{{ .Title }}</a></h3>
+
+        <p>{{ .PublishDate.Format "2 de January del 2006"}}</p>
+
+    </article>
+    {{ end }}
+</div>
