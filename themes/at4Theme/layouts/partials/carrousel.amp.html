@@ -1,6 +1,6 @@
 {{ with .Param "carrousel" }}
 <div class="thumbnail traveling3">
-    {{ range . }}
+    {{ range .images }}
     <div class="slide">
         <amp-img src="../images/{{.file}}" noloading height="80vh"></amp-img>
     </div>

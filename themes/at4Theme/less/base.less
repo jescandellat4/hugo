@@ -6,9 +6,6 @@ body {
     color: @color;
     background: @background;
 }
-p {
-    text-align: justify;
-}
 
 .content {
     display: inherit;
@@ -36,13 +33,26 @@ p {
 
 .button {
     align-items: center;
-    border: 4px solid @color;
-    color: @color;
     display: flex;
     height: 60px;
     margin: 0 auto;
     max-width: 240px;
     text-decoration:none;
+
+    &.dark {
+        border: 4px solid @color;
+        color: @color;
+    }
+
+    &.light {
+        border: 4px solid @color-invert;
+        color: @color-invert;
+    }
+
+    &.accent {
+        border: 4px solid @accent;
+        color: @accent;
+    }
 
     & p {
         font-size: 20px;
