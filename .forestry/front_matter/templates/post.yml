@@ -1,0 +1,77 @@
+---
+label: Post
+hide_body: false
+is_partial: false
+fields:
+- type: text
+  name: title
+  label: Title
+  description: Post title
+  config:
+    required: true
+- type: datetime
+  name: date
+  label: Date
+  description: Post date
+  config:
+    required: true
+    date_format: DD/MM/YYYY
+- type: field_group
+  name: tumbnail
+  label: Tumbnail
+  description: Tumbnail
+  fields:
+  - type: file
+    name: file
+    label: Thumbnail image
+    description: Thumbnail image
+  - type: number
+    name: width
+    label: Image width
+    description: Image width
+    config:
+      min: '0'
+  - type: number
+    name: height
+    label: Image height
+    description: Image height
+    config:
+      min: '0'
+- type: field_group
+  name: story
+  label: Story
+  description: Story Image
+  fields:
+  - type: file
+    name: file
+    label: Story image
+    description: Story image
+  - type: number
+    name: width
+    label: Image width
+    description: Image width
+    config:
+      min: '0'
+  - type: number
+    label: Image height
+    name: height
+    description: Image height
+    config:
+      min: '0'
+- type: field_group_list
+  name: carrousel
+  label: Carrousel
+  description: Carrousel
+  fields:
+  - type: file
+    name: file
+    label: Image
+    description: Image
+  - type: number
+    name: width
+    label: Image width
+    description: Image with
+  - type: number
+    name: Heigth
+    label: Image height
+    description: Image heigth
