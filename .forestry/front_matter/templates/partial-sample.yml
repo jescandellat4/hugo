@@ -1,0 +1,8 @@
+---
+label: Partial sample
+hide_body: false
+is_partial: true
+fields:
+- type: text
+  label: Text
+  name: text
