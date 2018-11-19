@@ -9,3 +9,5 @@ fields:
 - type: datetime
   name: date
   label: Creation date
+pages:
+- content/about.md
