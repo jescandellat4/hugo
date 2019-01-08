@@ -76,5 +76,5 @@ fields:
     label: Image height
     description: Image heigth
 pages:
-- content/blog/post-7.md
 - content/blog/post6.md
+- content/blog/post-7.md
